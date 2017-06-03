@@ -1,0 +1,38 @@
+<center>
+    <div ng-hide="escalations.length" class="admin-Escalation_Title">
+        <h3>No User Escalations</h3>
+    </div>
+    <div class="admin-Escalations_Title" ng-show="escalations.length">
+        <div class="u-full-width">
+            <h4><span>User Escalations</span></h4>
+
+            <table class="admin-Escalations">
+                <thead>
+                <tr>
+                    <th class="admin-Escalations_TableHeader">Created</th>
+                    <th class="admin-Escalations_TableHeader">User</th>
+                    <th class="admin-Escalations_TableHeader">Message</th>
+                    <th class="admin-Escalations_TableHeader">Status</th>
+                    <th class="admin-Escalations_TableHeader">Notification</th>
+                    <th class="admin-Escalations_TableHeader">Action</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="item in escalations | orderBy:'-create_date'">
+                    <td class="admin-Escalations_TableBody">{{ item.createDate | date }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.userName }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.message }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.status }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.notification }}</td>
+                    <td>
+                        <a href="#" ng-click="deleteNumber(item.id)">
+                            <fa name="trash" trash></fa>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</center>

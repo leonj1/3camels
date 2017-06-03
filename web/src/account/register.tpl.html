@@ -1,0 +1,44 @@
+<div class="card_register">
+    <div class="login-form-1">
+        <form id="register-form" class="text-left" ng-submit="register(registrationForm)">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+                        <label for="reg_firstname" class="sr-only">First Name</label>
+                        <input type="text" class="form-control" id="reg_firstname" name="reg_firstname" placeholder="first name" ng-model="registrationForm.firstname">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_lastname" class="sr-only">Last Name</label>
+                        <input type="text" class="form-control" id="reg_lastname" name="reg_lastname" placeholder="last name" ng-model="registrationForm.lastname">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_email" class="sr-only">Email</label>
+                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email" ng-model="registrationForm.email">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="Minimum 10 characters" ng-model="registrationForm.password">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                        <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
+                    </div>
+
+                    <button type="submit" class="button-primary register-Page_PrimaryButton">Sign up with Lotto Canary</button>
+
+                    <div class="form-group login-group-checkbox">
+                        <input type="checkbox" class="register-Page_checkbox" id="reg_agree" name="reg_agree" ng-model="registrationForm.agreed_terms">
+                        <span for="reg_agree" class="register-Page_Legal">By clicking "Sign up with Lotto Canary", you agree to our <a ui-sref="terms">terms of service</a>
+                            and <a ui-sref="privacy">privacy</a> policy. We'll occasionally send you account related emails.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="etc-login-form">
+                <p>Already have an account? <a ui-sref="login">login here</a></p>
+            </div>
+        </form>
+    </div>
+    <!-- end:Main Form -->
+</div>

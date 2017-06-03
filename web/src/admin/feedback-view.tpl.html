@@ -1,0 +1,33 @@
+<div>
+    <center>
+        <div ng-hide="comments.length" class="admin-Feedback_Title">
+            <h3>No Feedback</h3>
+        </div>
+        <div class="admin-Feedback_Title" ng-show="comments.length">
+            <div class="u-full-width">
+                <p>
+                    <h4><span>Feedback Comments</span></h4>
+                </p>
+
+                <table class="admin-Feedback_Table">
+                    <tr>
+                        <th class="admin-Feedback_TableHeader">Created</th>
+                        <th class="admin-Feedback_TableHeader">User</th>
+                        <th class="admin-Feedback_TableHeader">Comment</th>
+                        <th class="history-Numbers_TableHeader">Action</th>
+                    </tr>
+                    <tr ng-repeat="item in comments | orderBy:'-createDate'">
+                        <td class="admin-Feedback_TableBody">{{ item.createDate | date }}</td>
+                        <td class="admin-Feedback_TableBody">{{ item.userId }}</td>
+                        <td class="admin-Feedback_TableBody">{{ item.contents }}</td>
+                        <td>
+                            <a href="javascript:void(0);" ng-click="deleteNumber(item.id)">
+                                <fa name="trash" trash></fa>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+</div>

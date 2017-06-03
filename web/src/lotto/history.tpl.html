@@ -1,0 +1,50 @@
+<div>
+    <center>
+        <div ng-hide="pastNumbers.length" class="history-Numbers_Title">
+            <h3>No History</h3>
+        </div>
+        <div class="history-Numbers_Title" ng-show="pastNumbers.length">
+            <div class="u-full-width">
+                <p>
+                <h4>
+                    <span>Previous Play Results - </span>
+                    <span>{{ beingTracked.length }} Past Plays</span>
+                </h4>
+                </p>
+
+                <table class="tracking-Numbers_Table">
+                    <tr>
+                        <th class="history-Numbers_TableHeader">Created</th>
+                        <th class="history-Numbers_TableHeader">Draw Date</th>
+                        <th class="history-Numbers_TableHeader">Game</th>
+                        <th class="history-Numbers_TableHeader">Result</th>
+                        <th class="history-Numbers_TableHeader">Numbers</th>
+                        <th class="history-Numbers_TableHeader">Notification</th>
+                        <th class="history-Numbers_TableHeader">Action</th>
+                    </tr>
+                    <tr ng-repeat="item in pastNumbers | orderBy:'-draw_date'">
+                        <td class="history-Numbers_TableBody">{{ item.create_date | date }}</td>
+                        <td class="history-Numbers_TableBody">{{ item.draw_date | date }}</td>
+                        <td class="history-Numbers_TableBody">{{ item.game }}</td>
+                        <td class="history-Numbers_TableBody">{{ item.results }}</td>
+                        <td class="history-Numbers_TableBody">
+                            <lotto-number numbers="{{ item.playerNumbers }}"
+                                          multiplier="{{ item.multiplier }}">
+                            </lotto-number>
+                        </td>
+                        <td class="history-Numbers_TableBody">
+                            <span ng-show="item.notification_sent=='1'"
+                                  class="label label-primary">Notification Sent</span>
+                            <span ng-show="item.notification_sent != '1'" class="label label-warning">None Needed</span>
+                        </td>
+                        <td class="history-Numbers_TableBody">
+                            <a href="javascript:void(0);" ng-click="deleteNumber(item.id)">
+                                <fa name="trash" trash></fa>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+</div>

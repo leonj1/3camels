@@ -1,0 +1,58 @@
+<table class="u-full-width ticket-Numbers_UserSelections" border="0">
+    <tr>
+        <td class="ticket-Powerball_Title" colspan="7">Powerball</td>
+    </tr>
+    <tr>
+        <td class="ticket-Powerball_Chosen"
+            data-ng-repeat="num in chosen | orderBy">{{ num }}
+        </td>
+        <td class="ticket-Powerball_Chosen"
+            data-ng-repeat="n in range(1,maxNumbers - chosen.length)">
+            <fa name="circle" class="ticket-Powerball_Number"></fa>
+        </td>
+        <td class="ticket-Powerball_Multiplier" colspan="2">
+            <span data-ng-if="multiplier">{{ multiplier }}</span>
+            <fa data-ng-if="!multiplier"name="circle" class="ticket-Powerball_Number"></fa>
+        </td>
+    </tr>
+    <!--<tr>-->
+        <!--<td class="ticket-Powerball_Options" data-ng-click="clearSelections()" colspan="4"><fa name="close"></fa> Clear</td>-->
+        <!--<td class="ticket-Powerball_Options" colspan="3"><fa name="check"></fa> Add</td>-->
+    <!--</tr>-->
+</table>
+
+<table class="ticket-Numbers">
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(1,7)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(8,14)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(15,21)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(22,28)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(29,35)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(36,42)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(43,49)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(50,56)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow"><td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(57,63)">{{ n }}</td></tr>
+    <tr class="ticket-Powerball_NumberRow">
+        <td class="ticket-Powerball_Number" data-ng-click="selectNumber(n)" data-ng-class="{'sw-LottoNumber_Selected': showBadge('index', n)}" data-ng-repeat="n in range(64,70)">
+            <span data-ng-if="n < 70">{{ n }}</span>
+            <span data-ng-if="n > 69">&nbsp</span>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr><td class="ticket-Powerball_Multiplier" data-ng-click="selectMultiplier(n)" data-ng-class="{'sw-LottoNumber_MultiplierSelected': showBadge('multiplier', n)}" data-ng-repeat="n in range(1,7)">{{ n }}</td></tr>
+    <tr><td class="ticket-Powerball_Multiplier" data-ng-click="selectMultiplier(n)" data-ng-class="{'sw-LottoNumber_MultiplierSelected': showBadge('multiplier', n)}" data-ng-repeat="n in range(8,14)">{{ n }}</td></tr>
+    <tr><td class="ticket-Powerball_Multiplier" data-ng-click="selectMultiplier(n)" data-ng-class="{'sw-LottoNumber_MultiplierSelected': showBadge('multiplier', n)}" data-ng-repeat="n in range(15,21)">{{ n }}</td></tr>
+    <tr>
+        <td class="ticket-Powerball_Multiplier" data-ng-if="n<27" data-ng-click="selectMultiplier(n)" data-ng-class="{'sw-LottoNumber_MultiplierSelected': showBadge('multiplier', n)}" data-ng-repeat="n in range(22,28)">
+            <span data-ng-if="n < 27">{{ n }}</span>
+            <span data-ng-if="n > 26">&nbsp</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="ticket-Powerball_Actions" data-ng-click="close()" colspan="4">Cancel</td>
+        <td class="ticket-Powerball_Actions" data-ng-click="done()" colspan="3">Done</td>
+    </tr>
+</table>
+

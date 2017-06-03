@@ -1,0 +1,43 @@
+<div>
+    <center>
+        <div ng-if="!beingTracked" class="tracking-Numbers_Title">
+            <h3>There are no lotto numbers being tracked.</h3>
+        </div>
+        <div ng-if="beingTracked">
+            <p>
+                <h4>
+                    <span class="tracking-Numbers_Title">Lotto Numbers Pending Results. </span>
+                    <span class="tracking-Numbers_Title">
+                        {{ beingTracked.length }} Awaiting - Fingers crossed!
+                    </span>
+                </h4>
+            </p>
+
+            <table class="history-Numbers_Table">
+                <tr class="tracking-Numbers_TableHeader">
+                    <th>Created</th>
+                    <th>Draw Date</th>
+                    <th>Game</th>
+                    <th>Numbers</th>
+                    <th class="history-Numbers_TableHeader">Action</th>
+                </tr>
+                <tr ng-repeat="item in beingTracked  | orderBy:'-create_date'" class="tracking-Numbers">
+                    <td>{{ item.create_date | date }}</td>
+                    <td>{{ item.drawDate | date }}</td>
+                    <td>{{ item.game }}</td>
+                    <td>
+                        <lotto-number numbers="{{ item.player_numbers }}"
+                                      multiplier="{{ item.multiplier }}">
+                        </lotto-number>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0);" ng-click="deleteNumber(item.id)">
+                            <fa name="trash" trash></fa>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</div>
+

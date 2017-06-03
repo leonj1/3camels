@@ -1,0 +1,57 @@
+<html lang="en" ng-app="lottoApp">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>LottoCanary</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+
+    <LINK rel="stylesheet" href="css/vendor.min.css"/>
+    <LINK rel="stylesheet" href="css/app.min.css"/>
+
+</head>
+<body ng-controller="SubmitLottoController">
+
+<div id="loading-bar-container"></div>
+
+<!-- NAVIGATION -->
+<ul class="topnav" ng-class="{responsive: openResponsiveMenu}" id="myTopnav">
+    <li class="u-pull-left"><a class="active" href="#home">LOTTO CANARY</a></li>
+    <li ng-if="currentUser" class="u-pull-left"><a ui-sref="tracking">Pending <fa name="search"></fa></a></li>
+    <li ng-if="currentUser" class="u-pull-left"><a ui-sref="history">History <fa name="folder-open-o"></fa></a></li>
+
+    <!--Strange that u-pull-right puts them in reverse order than listed-->
+    <li ng-if="currentUser" class="u-pull-right dropdown">
+        <a class="dropbtn">Account <fa name="angle-down" angle-down></fa></a>
+        <div class="dropdown-content">
+            <a ui-sref="profile">Your Profile</a>
+            <a ui-sref="security">Security</a>
+            <a ui-sref="notifications">Notifications</a>
+            <a href="#" ng-click="logout()">Logout {{ currentUser.firstname }}</a>
+        </div>
+    </li>
+
+    <li ng-if="!currentUser" class="u-pull-right"><a ui-sref="login">Login</a></li>
+    <li ng-if="!currentUser" class="u-pull-right"><a ui-sref="register">Register</a></li>
+
+    <li ng-if="currentUser.userType === 'admin'" class="u-pull-right"><a ui-sref="admin_feedback">Admin</a></li>
+    <li class="icon">
+        <a href="javascript:void(0);" ng-click="openBurger()">
+            <fa name="bars"
+                alt="☰">
+            </fa>
+        </a>
+    </li>
+    <li ng-if="currentUser" class="u-pull-left">
+        <a ui-sref="feedback">
+            Feedback <fa name="comment-o"></fa>
+        </a>
+    </li>
+</ul>
+
+<ui-view></ui-view>
+
+<!-- inject:js -->
+<!-- endinject -->
+
+</body>
+</html>

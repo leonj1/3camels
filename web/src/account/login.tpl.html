@@ -1,0 +1,25 @@
+<div class="card_login">
+    <form id="login-form" class="text-left" ng-submit="login(loginForm)">
+        <div class="main-login-form">
+            <div class="login-group">
+                <div class="form-group">
+                    <label for="lg_username" class="sr-only">Username</label>
+                    <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username" ng-model="loginForm.email">
+                </div>
+                <div class="form-group">
+                    <label for="lg_password" class="sr-only">Password</label>
+                    <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"  ng-model="loginForm.password">
+                </div>
+                <div class="form-group login-group-checkbox">
+                    <input type="checkbox" id="lg_remember" name="lg_remember"  ng-model="loginForm.rememberme">
+                    <span for="lg_remember">remember</span>
+                </div>
+                <button type="submit" class="button-primary">Login</button>
+            </div>
+        </div>
+        <div class="etc-login-form">
+            <div>forgot your password? <a ui-sref="forgot">click here</a></div>
+            new user? <a ui-sref="register">create new account</a>
+        </div>
+    </form>
+</div>

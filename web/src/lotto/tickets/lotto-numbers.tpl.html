@@ -1,0 +1,15 @@
+<input ng-if="editable"
+        type="text"
+       id="check_numbers"
+       class="sw-VisibleOnDarkBackground"
+       name="check_numbers"
+       placeholder="{{ placeholder }}"
+       value="{{ numbers }}">
+<input ng-if="editable"
+       size="2"
+       placeholder="00"
+       class="sw-VisibleOnDarkBackground"
+       value="{{ multiplier }}">
+
+<span ng-if="!editable" class="sw-VisibleOnDarkBackground">{{ numbers }}</span>
+<span ng-if="!editable" class="sw-VisibleOnDarkBackground">{{ multiplier }}</span>

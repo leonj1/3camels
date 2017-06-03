@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row hero">
+
+        <div class="seven columns">
+            <h3 class="hero-heading">What numbers would you like to track?</h3>
+
+            <form id="submit-numbers-form" class="text-left" data-ng-submit="check(numbersForm)">
+                <div class="main-check-form">
+                    <div class="radio-group">
+                        <label><input type="radio"
+                                      name="numbersForm.game"
+                                      data-ng-model="numbersForm.game"
+                                      data-value="Mega Millions"
+                                      data-ng-click="openTicketInput('mega')">
+                            <span class="label-body">Mega Millions</span></label>
+                        <label><input type="radio"
+                                      name="numbersForm.game"
+                                      data-ng-model="numbersForm.game"
+                                      data-value="Powerball"
+                                      data-ng-click="openTicketInput('powerball')">
+                            <span class="label-body">Powerball</span></label>
+
+                        <div class="sw-CheckNumbers">
+                            <lotto-number ng-if="showLottoNumber"
+                                          numbers="{{ numbersForm.numbers }}"
+                                          multiplier="{{ numbersForm.multiplier }}"
+                                          placeholder="00 00 00 00 00">
+                            </lotto-number>
+                            <input type="text"
+                                   id="game_date"
+                                   name="game_date"
+                                   placeholder="mm/dd/yyyy"
+                                   data-ng-model="numbersForm.gameDate"
+                                   data-moment-picker="numbersForm.gameDate"
+                                   data-format="MM/DD/YYYY"
+                                   data-value="{{ numbersForm.gameDate }}">
+                        </div>
+                        <button type="submit" class="button-primary">Check</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="five columns">
+            <div data-ui-view="upcoming"></div>
+        </div>
+    </div>
+</div>

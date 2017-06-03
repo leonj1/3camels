@@ -1,0 +1,42 @@
+<center>
+    <div ng-hide="users.length" class="admin-Escalation_Title">
+        <h3>No Users</h3>
+    </div>
+    <div class="admin-Escalations_Title" ng-show="users.length">
+        <div class="u-full-width">
+            <h4><span>Users</span></h4>
+
+            <table class="admin-Escalations">
+                <thead>
+                <tr>
+                    <th class="admin-Escalations_TableHeader">id</th>
+                    <th class="admin-Escalations_TableHeader">Created</th>
+                    <th class="admin-Escalations_TableHeader">First Name</th>
+                    <th class="admin-Escalations_TableHeader">Last Name</th>
+                    <th class="admin-Escalations_TableHeader">Email</th>
+                    <th class="admin-Escalations_TableHeader">Status</th>
+                    <th class="admin-Escalations_TableHeader">Last Login</th>
+                    <th class="admin-Escalations_TableHeader">Password Last Set</th>
+                    <th class="admin-Escalations_TableHeader">Update Date</th>
+                    <th class="admin-Escalations_TableHeader">Agreed Terms</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="item in users | orderBy:'-create_date'">
+                    <td class="admin-Escalations_TableBody">{{ item.id }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.create_date | date }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.first_name }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.last_name }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.email }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.status }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.last_login }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.password_last_set_date }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.update_date }}</td>
+                    <td class="admin-Escalations_TableBody">{{ item.agreed_terms }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</center>

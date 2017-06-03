@@ -1,0 +1,20 @@
+<h4>My Profile</h4>
+
+<div class="account-Profile">
+    <form id="profile-form" class="text-left" ng-submit="updateProfile(profileForm)">
+        <label class="account-Profile_Label">First Name</label>
+        <input class="account-Profile_Textbox" type="textbox" value="{{ profileForm.firstname }}" ng-model="profileForm.firstname">
+
+        <label class="account-Profile_Label">Last Name</label>
+        <input class="account-Profile_Textbox" type="textbox" value="{{ profileForm.lastname }}" ng-model="profileForm.lastname">
+
+        <label class="account-Profile_Label">Email</label>
+        <input class="account-Profile_Textbox" type="textbox" value="{{ profileForm.userName }}" ng-model="profileForm.userName">
+
+        <div>
+            <button type="submit" class="button-primary">
+                Update Profile
+            </button>
+        </div>
+    </form>
+</div>
